@@ -1,0 +1,83 @@
+{
+  "waterfront": {
+    "triggers": ["canal", "waterfront", "water front", "gulf access", "river", "lake front", "lakefront", "bayfront", "bay front", "intercoastal", "intracoastal", "riverfront"],
+    "tags": ["Gulf Access", "Canal Front", "Waterfront", "Boating Community"]
+  },
+  "pool": {
+    "triggers": ["pool", "swimming pool", "heated pool", "lap pool", "saltwater pool"],
+    "tags": ["Pool Home", "Heated Pool"]
+  },
+  "noHoa": {
+    "triggers": ["no hoa", "no h.o.a", "hoa: $0", "hoa: none", "no homeowners association"],
+    "tags": ["No HOA"]
+  },
+  "boating": {
+    "triggers": ["boat dock", "boat lift", "seawall", "boat ramp", "marine", "boathouse", "boat house", "floating dock", "davits"],
+    "tags": ["Boating", "Boat Dock", "Seawall", "Boat Lift"]
+  },
+  "stormProtection": {
+    "triggers": ["impact windows", "hurricane shutters", "hurricane impact", "storm shutters", "accordion shutters", "panel shutters", "impact resistant", "impact glass"],
+    "tags": ["Storm Protection", "Impact Windows", "Hurricane Ready"]
+  },
+  "capeCoralGulfAccess": {
+    "triggers": [],
+    "cityTrigger": "Cape Coral",
+    "requiresTags": ["Gulf Access"],
+    "tags": ["Cape Coral Gulf Access", "Cape Coral Waterfront"]
+  },
+  "naplesLuxury": {
+    "triggers": [],
+    "cityTrigger": "Naples",
+    "tags": ["Naples Luxury", "Naples Real Estate", "SW Florida Luxury"]
+  },
+  "newConstruction": {
+    "triggers": ["new construction", "new build", "newly built", "brand new", "never lived in", "builder's model"],
+    "yearBuiltAfter": 2020,
+    "tags": ["New Construction", "New Build", "Move-In Ready"]
+  },
+  "rvParking": {
+    "triggers": ["rv parking", "rv pad", "rv hookup", "rv storage", "motorhome", "boat/rv", "rv/boat"],
+    "tags": ["RV Parking", "RV & Boat Storage"]
+  },
+  "strEligible": {
+    "triggers": ["short-term rental", "short term rental", "str eligible", "str approved", "airbnb", "vrbo", "vacation rental", "investment property"],
+    "tags": ["STR Eligible", "Vacation Rental", "Investment Property"]
+  },
+  "largeLot": {
+    "lotSizeAcresMin": 0.5,
+    "tags": ["Large Lot", "Oversized Lot", "Private Property"]
+  },
+  "preserveView": {
+    "triggers": ["preserve view", "preserve lot", "lake view", "lake front", "nature view", "conservation lot", "greenbelt", "golf course view", "golf view"],
+    "tags": ["Nature View", "Preserve View", "Peaceful Setting"]
+  },
+  "golfCommunity": {
+    "triggers": ["golf community", "golf course", "country club", "golf and country", "bundled golf"],
+    "tags": ["Golf Community", "Country Club Living"]
+  },
+  "gatedCommunity": {
+    "triggers": ["gated community", "gated", "guarded gate", "guard gated", "24-hour gate", "private community"],
+    "tags": ["Gated Community", "Private & Secure"]
+  },
+  "outdoorLiving": {
+    "triggers": ["lanai", "screened lanai", "covered lanai", "outdoor kitchen", "summer kitchen", "outdoor living", "screened porch", "enclosed porch", "pavers", "paver driveway"],
+    "tags": ["Outdoor Living", "Florida Lifestyle", "Entertainer's Dream"]
+  },
+  "cbsConstruction": {
+    "triggers": ["cbs", "concrete block", "concrete block construction", "solid block", "cbs construction"],
+    "tags": ["CBS Construction", "Solid Construction"]
+  },
+  "cities": {
+    "Cape Coral": ["#capecoral", "#capecoralfl", "#capecoralrealestate", "#swfl", "#swflrealestate"],
+    "Fort Myers": ["#fortmyers", "#fortmyersfl", "#fortmyersrealestate", "#swfl", "#swflrealestate"],
+    "Naples": ["#naplesfl", "#naples", "#naplesrealestate", "#swfl", "#swflrealestate"],
+    "Bonita Springs": ["#bonitasprings", "#bonitaspringsfl", "#swfl", "#swflrealestate"],
+    "Estero": ["#estero", "#esterofl", "#swfl", "#swflrealestate"],
+    "Lehigh Acres": ["#lehighacres", "#swfl", "#swflrealestate"],
+    "Sanibel": ["#sanibel", "#sanibelisland", "#swfl"],
+    "Fort Myers Beach": ["#fortmyersbeach", "#fmb", "#swfl"],
+    "Marco Island": ["#marcoisland", "#swfl", "#swflrealestate"],
+    "Punta Gorda": ["#puntagorda", "#swfl", "#swflrealestate"],
+    "Port Charlotte": ["#portcharlotte", "#swfl", "#swflrealestate"]
+  }
+}
