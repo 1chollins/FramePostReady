@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import ContentCard from './ContentCard'
 import type { ContentType } from '@/types/content'
 
@@ -24,7 +24,7 @@ export default function ContentViewer({ listingId, onGenerateAll, generating }: 
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  async function fetchContent() {
+  const fetchContent = useCallback(async () => {
     setLoading(true)
     setError(null)
     try {
@@ -37,13 +37,13 @@ export default function ContentViewer({ listingId, onGenerateAll, generating }: 
     } finally {
       setLoading(false)
     }
-  }
+  }, [listingId])
 
-  useEffect(() => { fetchContent() }, [listingId])
+  useEffect(() => { fetchContent() }, [fetchContent])
 
   useEffect(() => {
     if (!generating) fetchContent()
-  }, [generating])
+  }, [generating, fetchContent])
 
   const blockMap = Object.fromEntries(blocks.map((b) => [b.contentType, b]))
   const hasContent = blocks.length > 0
@@ -78,7 +78,7 @@ export default function ContentViewer({ listingId, onGenerateAll, generating }: 
         <div className="text-center py-16 border-2 border-dashed border-gray-200 rounded-xl text-gray-400">
           <p className="text-3xl mb-3">✨</p>
           <p className="text-sm font-medium">No content generated yet</p>
-          <p className="text-xs mt-1">Click "Generate All Content" to get started</p>
+          <p className="text-xs mt-1">Click &quot;Generate All Content&quot; to get started</p>
         </div>
       )}
 
