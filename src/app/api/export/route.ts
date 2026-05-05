@@ -6,7 +6,7 @@ import type { ApiResponse } from '@/types/api'
 import type { ContentType } from '@/types/content'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
-const FROM = 'FramePostReady <onboarding@resend.dev>'
+const FROM = 'FramePostReady <noreply@frameandformstudio.com>'
 
 const TYPE_EMOJI: Record<ContentType, string> = {
   Instagram: '📸',

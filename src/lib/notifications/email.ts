@@ -2,7 +2,7 @@ import { Resend } from 'resend'
 import type { GenerationResult } from '@/types/content'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
-const FROM = 'FramePostReady <onboarding@resend.dev>'
+const FROM = 'FramePostReady <noreply@frameandformstudio.com>'
 const NOTIFY_TO = process.env.NOTIFICATION_EMAIL || 'contact@frameandformstudio.com'
 
 /**
