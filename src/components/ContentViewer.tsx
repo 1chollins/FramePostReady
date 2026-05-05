@@ -50,6 +50,12 @@ export default function ContentViewer({ listingId, onGenerateAll, generating, re
     if (refreshKey && refreshKey > 0) fetchContent()
   }, [refreshKey, fetchContent])
 
+  useEffect(() => {
+    if (!generating) return
+    const interval = setInterval(() => { fetchContent() }, 5000)
+    return () => clearInterval(interval)
+  }, [generating, fetchContent])
+
   const blockMap = Object.fromEntries(blocks.map((b) => [b.contentType, b]))
   const hasContent = blocks.length > 0
 
@@ -62,13 +68,23 @@ export default function ContentViewer({ listingId, onGenerateAll, generating, re
             {hasContent ? `${Object.keys(blockMap).length}/6 types generated` : 'No content yet'}
           </p>
         </div>
-        <button
-          onClick={onGenerateAll}
-          disabled={generating}
-          className="bg-emerald-600 hover:bg-emerald-700 disabled:bg-emerald-400 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors"
-        >
-          {generating ? '⏳ Generating...' : hasContent ? '↺ Regenerate All' : '✨ Generate All Content'}
-        </button>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => fetchContent()}
+            disabled={loading}
+            className="text-sm text-gray-400 hover:text-gray-600 px-2 py-2 rounded-lg transition-colors"
+            title="Refresh content"
+          >
+            ↻
+          </button>
+          <button
+            onClick={onGenerateAll}
+            disabled={generating}
+            className="bg-emerald-600 hover:bg-emerald-700 disabled:bg-emerald-400 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors"
+          >
+            {generating ? '⏳ Generating...' : hasContent ? '↺ Regenerate All' : '✨ Generate All Content'}
+          </button>
+        </div>
       </div>
 
       {loading && (
