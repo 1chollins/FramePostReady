@@ -83,6 +83,7 @@ export default function ListingDetailPage() {
   const [loading, setLoading] = useState(true)
   const [generating, setGenerating] = useState(false)
   const [genError, setGenError] = useState<string | null>(null)
+  const [refreshKey, setRefreshKey] = useState(0)
   const [showEmailModal, setShowEmailModal] = useState(false)
 
   useEffect(() => {
@@ -116,6 +117,7 @@ export default function ListingDetailPage() {
       setGenError(err instanceof Error ? err.message : 'Generation failed')
     } finally {
       setGenerating(false)
+      setRefreshKey((k) => k + 1)
     }
   }
 
@@ -207,6 +209,7 @@ export default function ListingDetailPage() {
           listingId={listingId}
           onGenerateAll={handleGenerateAll}
           generating={generating}
+          refreshKey={refreshKey}
         />
 
       </div>

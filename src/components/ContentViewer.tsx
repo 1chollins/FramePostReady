@@ -15,11 +15,12 @@ interface ContentViewerProps {
   listingId: string
   onGenerateAll: () => void
   generating: boolean
+  refreshKey?: number
 }
 
 const CONTENT_ORDER: ContentType[] = ['Instagram', 'Facebook', 'MLS', 'Email', 'Reel Script', 'Hashtags']
 
-export default function ContentViewer({ listingId, onGenerateAll, generating }: ContentViewerProps) {
+export default function ContentViewer({ listingId, onGenerateAll, generating, refreshKey }: ContentViewerProps) {
   const [blocks, setBlocks] = useState<ContentBlock[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -44,6 +45,10 @@ export default function ContentViewer({ listingId, onGenerateAll, generating }: 
   useEffect(() => {
     if (!generating) fetchContent()
   }, [generating, fetchContent])
+
+  useEffect(() => {
+    if (refreshKey && refreshKey > 0) fetchContent()
+  }, [refreshKey, fetchContent])
 
   const blockMap = Object.fromEntries(blocks.map((b) => [b.contentType, b]))
   const hasContent = blocks.length > 0
