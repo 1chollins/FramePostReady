@@ -66,7 +66,7 @@ export async function updateAgent(
   id: string,
   data: Partial<Omit<Agent, 'id'>>
 ): Promise<Agent> {
-  const fields: Record<string, unknown> = {}
+  const fields: Record<string, Airtable.FieldSet[string]> = {}
   if (data.name !== undefined) fields['Agent Name'] = data.name
   if (data.email !== undefined) fields['Email'] = data.email
   if (data.phone !== undefined) fields['Phone'] = data.phone

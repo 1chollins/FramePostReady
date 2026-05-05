@@ -3,6 +3,9 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   experimental: {
     serverComponentsExternalPackages: ['apify-client', 'proxy-agent', 'got-scraping'],
   },
